@@ -1,0 +1,17 @@
+stable-baselines3>=2.0.0
+torch>=2.0.0
+tqdm>=4.65.0
+rich>=13.0.0
+
+# Overcooked-AI uses np.Inf, which NumPy 2.0 removed.
+numpy>=1.24.0,<2.0
+
+gymnasium>=0.28.0
+scipy>=1.10.0
+tensorboard>=2.13.0
+pandas>=2.0.0
+
+# Reproduction notebook
+notebook>=7.0.0
+matplotlib>=3.7.0
+pygame>=2.1.0
