@@ -4,7 +4,7 @@
 
 MSc Data Science dissertation, King's College London (2025-26), supervised by [Dr Antonio Rago](https://antoniorago.github.io).
 
-## In short
+## TL;DR
 
 Two AI agents have to cook and deliver soup together in [Overcooked-AI](https://github.com/HumanCompatibleAI/overcooked_ai). Standard reinforcement learning lets them learn to coordinate from reward alone, but nothing in the trained policy says what each agent is trying to do.
 
