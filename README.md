@@ -1,5 +1,26 @@
 # Argumentation-Based Coordination for Multi-Agent Reinforcement Learning in Overcooked
 
+![Python 3.10](https://img.shields.io/badge/Python%203.10-3776AB?logo=python&logoColor=white) ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white) ![Stable-Baselines3](https://img.shields.io/badge/Stable--Baselines3-6A5ACD) ![Gymnasium](https://img.shields.io/badge/Gymnasium-2E7D32) ![NumPy](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=white) ![pandas](https://img.shields.io/badge/pandas-150458?logo=pandas&logoColor=white) ![SciPy](https://img.shields.io/badge/SciPy-8CAAE6?logo=scipy&logoColor=white) ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white)
+
+MSc Data Science dissertation, King's College London (2025-26), supervised by [Dr Antonio Rago](https://antoniorago.github.io).
+
+## In short
+
+Two AI agents have to cook and deliver soup together in [Overcooked-AI](https://github.com/HumanCompatibleAI/overcooked_ai). Standard reinforcement learning lets them learn to coordinate from reward alone, but nothing in the trained policy says what each agent is trying to do.
+
+**ArgRL** adds an argumentation framework that, as the game unfolds, assigns each agent a readable intention such as *fetch onion*, *fetch dish* or *deliver soup*, and resolves conflicts between the two agents' options. The intentions reach the PPO agents through two channels: as part of what they observe, and as a shaped training reward.
+
+**What it found**
+
+- Agents given the intentions **learned faster on all six seeds**, on both convergence measures (exploratory analysis).
+- Executed directly by a scripted controller, the framework's intentions **matched a strong fixed role split at 11.0 soups per episode**.
+- Final performance was **not detectably better** than the PPO baseline (+0.24 soups per episode, Holm-corrected p = 0.748). The framework's value here is interpretable coordination and faster learning, not a higher final score.
+
+**How it was tested**
+
+24 confirmatory training runs (four conditions, six seeds each, one million steps per run), four tests fixed before the results were seen, Holm correction and bootstrap confidence intervals, plus a determinism check that rewards are reproducible.
+
+
 ## Abstract
 
 In cooperative multi-agent reinforcement learning, coordination can be learned from task reward alone. However, policies do not explicitly represent what each agent intends and give designers no direct route to supply coordination knowledge in advance. To test whether an argumentation-derived intention signal assigning high-level subtasks to the agents improves coordination, this thesis implemented Argumentation-Guided Reinforcement Learning (ArgRL), an integrated system in which a value-based argumentation framework produces an intention profile for agents trained with proximal policy optimisation (PPO). The framework used a state-adaptive attack relation, meaning that candidate intentions attacked one another only when they were mutually incompatible in the current state. The agents were trained in Overcooked-AI, a cooperative soup delivery task. The profile was appended to their observations and used to construct a potential-based shaping term added to the training reward. Four conditions compared ArgRL-Full with the PPO baseline, ArgRL-Obs and ArgRL-Frozen, with six seeds each in the Cramped Room layout. Four tests were fixed beforehand.
