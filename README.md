@@ -1,6 +1,6 @@
 # Argumentation-Based Coordination for Multi-Agent Reinforcement Learning in Overcooked
 
-![Python 3.10](https://img.shields.io/badge/Python%203.10-3776AB?logo=python&logoColor=white) ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white) ![Stable-Baselines3](https://img.shields.io/badge/Stable--Baselines3-6A5ACD) ![Gymnasium](https://img.shields.io/badge/Gymnasium-2E7D32) ![NumPy](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=white) ![pandas](https://img.shields.io/badge/pandas-150458?logo=pandas&logoColor=white) ![SciPy](https://img.shields.io/badge/SciPy-8CAAE6?logo=scipy&logoColor=white) ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white)
+[![tests](https://github.com/derindidinedin/argue-to-cook/actions/workflows/tests.yml/badge.svg)](https://github.com/derindidinedin/argue-to-cook/actions/workflows/tests.yml) ![Python 3.10](https://img.shields.io/badge/Python%203.10-3776AB?logo=python&logoColor=white) ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white) ![Stable-Baselines3](https://img.shields.io/badge/Stable--Baselines3-6A5ACD) ![Gymnasium](https://img.shields.io/badge/Gymnasium-2E7D32) ![NumPy](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=white) ![pandas](https://img.shields.io/badge/pandas-150458?logo=pandas&logoColor=white) ![SciPy](https://img.shields.io/badge/SciPy-8CAAE6?logo=scipy&logoColor=white) ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white)
 
 MSc Data Science dissertation, King's College London (2025-26), supervised by [Dr Antonio Rago](https://antoniorago.github.io).
 
@@ -66,6 +66,8 @@ exploratory/                exploratory experiments and analysis
 
 results/                    saved results used in the thesis
 
+tests/                      unit tests for the af package
+
 figures/                    figures used in this README
 
 reproduce.ipynb             walkthrough of the environment, method and results
@@ -96,6 +98,14 @@ From the project folder, install the dependencies:
 ```bash
 python -m pip install git+https://github.com/HumanCompatibleAI/overcooked_ai.git
 python -m pip install -r requirements.txt
+```
+
+## Tests
+
+The `tests/` folder holds 109 unit tests for the `af` package: the argumentation framework and scoring, reward shaping, the policy, the environment wrapper and the scripted executor. They run automatically on every push.
+
+```bash
+python -m pytest tests
 ```
 
 ## Reproducing the results
